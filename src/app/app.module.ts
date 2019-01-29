@@ -8,6 +8,14 @@ import { FooterComponent } from './footer/footer.component';
 import { BannerComponent } from './banner/banner.component';
 import { ProductComponent } from './product/product.component';
 import { StarsComponent } from './stars/stars.component';
+import { HomeComponent } from './home/home.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import {RouterModule, Routes} from '@angular/router';
+
+const route: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'productDetail/:productName', component: ProductDetailComponent}
+];
 
 @NgModule({
   declarations: [
@@ -17,10 +25,13 @@ import { StarsComponent } from './stars/stars.component';
     FooterComponent,
     BannerComponent,
     ProductComponent,
-    StarsComponent
+    StarsComponent,
+    HomeComponent,
+    ProductDetailComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(route)
   ],
   providers: [],
   bootstrap: [AppComponent]
