@@ -11,11 +11,12 @@ import { StarsComponent } from './stars/stars.component';
 import { HomeComponent } from './home/home.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import {RouterModule, Routes} from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
-const route: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'productDetail/:productName', component: ProductDetailComponent}
-];
+// const route: Routes = [
+//   {path: '', component: HomeComponent},
+//   {path: 'productDetail/:productName', component: ProductDetailComponent}
+// ];
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ const route: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(route)
+    // RouterModule.forRoot(route),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
