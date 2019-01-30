@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import {RouterModule, Routes} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import {ProductService} from './shared/product.service';
 
 // const route: Routes = [
 //   {path: '', component: HomeComponent},
@@ -35,7 +36,7 @@ import { AppRoutingModule } from './app-routing.module';
     // RouterModule.forRoot(route),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

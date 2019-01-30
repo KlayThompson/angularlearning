@@ -1,2 +1,30 @@
-<img src="http://placehold.it/820x300">
-<h4>{{productName}}</h4>
+<div class="thumbnail">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1548844578876&di=093225d0b40d6942f2aa85c6eba2c72c&imgtype=0&src=http%3A%2F%2Fstatic-bbs.nubia.cn%2Fforum%2F201512%2F21%2F155348ismua1rm10tku100.jpg">
+    <div>
+        <h4 class="pull-right">{{product.price}} 元</h4>
+        <h4>{{product.title}}</h4>
+        <p>{{product.desc}}</p>
+    </div>
+    <div>
+        <p class="pull-right">
+            {{productCommnets.length}} 个评论
+        </p>
+        <p>
+            <app-stars [rating]="product.rating"></app-stars>
+        </p>
+    </div>
+</div>
+
+<div class="well">
+    <h4>用户评论</h4>
+    <div class="row" *ngFor="let comment of productCommnets">
+        <hr>
+        <div class="col-md-12">
+            <app-stars [rating]="comment.rating"></app-stars>
+            <span>{{comment.user}}</span>
+            <span class="pull-right">{{comment.time}}</span>
+            <p></p>
+            <p>{{comment.content}}</p>
+        </div>
+    </div>
+</div>
