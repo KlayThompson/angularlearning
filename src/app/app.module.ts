@@ -10,14 +10,10 @@ import { ProductComponent } from './product/product.component';
 import { StarsComponent } from './stars/stars.component';
 import { HomeComponent } from './home/home.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import {RouterModule, Routes} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import {ProductService} from './shared/product.service';
-
-// const route: Routes = [
-//   {path: '', component: HomeComponent},
-//   {path: 'productDetail/:productName', component: ProductDetailComponent}
-// ];
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FliterPipe } from './pipe/fliter.pipe';
 
 @NgModule({
   declarations: [
@@ -29,12 +25,14 @@ import {ProductService} from './shared/product.service';
     ProductComponent,
     StarsComponent,
     HomeComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    FliterPipe
   ],
   imports: [
     BrowserModule,
-    // RouterModule.forRoot(route),
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
