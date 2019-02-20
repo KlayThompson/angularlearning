@@ -10,7 +10,11 @@ import {Product, ProductComment, ProductService} from '../shared/product.service
 export class ProductDetailComponent implements OnInit {
 
   private product: Product;
-  private productCommnets: ProductComment[];
+  private productComments: ProductComment[];
+  newRating = 5;
+  newComment = '';
+  isCommentHidden = true;
+
   constructor(private routeInfo: ActivatedRoute,
               private productService: ProductService
               ) { }
@@ -19,7 +23,17 @@ export class ProductDetailComponent implements OnInit {
     const productId = this.routeInfo.snapshot.params['id'];
     console.log(productId);
     this.product = this.productService.getProduct(productId);
-    this.productCommnets = this.productService.getProductComment(productId);
+    this.productComments = this.productService.getProductComment(productId);
+  }
+
+  addNewComment() {
+    this.productComments.unshift(new ProductComment(0, this.product.id, 'Nancy', new Date().toISOString(), this.newRating, this.newComment));
+    this.newRating = 5;
+    this.newComment = '';
+    this.isCommentHidden = true;
+    // 处理平均星级
+    const total = this.productComments.reduce((sum, comment) => sum + comment.rating, 0);
+    this.product.rating = total / this.productComments.length;
   }
 
 }

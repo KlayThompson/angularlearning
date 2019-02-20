@@ -7,7 +7,7 @@
     </div>
     <div>
         <p class="pull-right">
-            {{productCommnets.length}} 个评论
+            {{productComments.length}} 个评论
         </p>
         <p>
             <app-stars [rating]="product.rating"></app-stars>
@@ -16,8 +16,18 @@
 </div>
 
 <div class="well">
+    <div>
+        <button class="btn btn-success" (click)="isCommentHidden = !isCommentHidden">发表评论</button>
+    </div>
+    <div [hidden]="isCommentHidden">
+        <app-stars [readonly]="false" [(rating)]="newRating"></app-stars>
+        <textarea [(ngModel)]="newComment"></textarea>
+        <div>
+            <button class="btn" (click)="addNewComment()">提交</button>
+        </div>
+    </div>
     <h4>用户评论</h4>
-    <div class="row" *ngFor="let comment of productCommnets">
+    <div class="row" *ngFor="let comment of productComments">
         <hr>
         <div class="col-md-12">
             <app-stars [rating]="comment.rating"></app-stars>
