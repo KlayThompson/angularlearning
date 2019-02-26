@@ -9,8 +9,8 @@ import {Product, ProductComment, ProductService} from '../shared/product.service
 })
 export class ProductDetailComponent implements OnInit {
 
-  private product: Product;
-  private productComments: ProductComment[];
+  product: Product;
+  productComments: ProductComment[];
   newRating = 5;
   newComment = '';
   isCommentHidden = true;

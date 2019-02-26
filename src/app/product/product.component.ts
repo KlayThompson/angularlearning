@@ -11,8 +11,8 @@ export class ProductComponent implements OnInit {
 
   products: Product[];
   imageUrl: string;
-  private keyword: string;
-  private titleSearch: FormControl = new FormControl();
+  keyword: string;
+  titleSearch: FormControl = new FormControl();
 
   constructor(private productService: ProductService) {
 
