@@ -1,17 +1,22 @@
-<form name="searchForm" role="form">
-  <div class="form-group">
+<form [formGroup]="formModel" (ngSubmit)="onsubmit()" novalidate>
+  <div class="form-group" [class.has-error]="formModel.hasError('minlength', 'name')">
     <label for="productName">商品名称：</label>
-    <input id="productName" type="text" placeholder="商品名称" class="form-control">
+    <input id="productName" type="text" placeholder="商品名称" class="form-control" formControlName="name">
+    <span class="help-block" [class.hidden]="!formModel.hasError('minlength', 'name')">商品名称不能少于三位</span>
   </div>
-  <div class="form-group">
+  <div class="form-group" [class.has-error]="formModel.hasError('priceValidator', 'price')">
     <label for="productPrice">商品价格：</label>
-    <input id="productPrice" type="text" placeholder="商品价格" class="form-control">
+    <input id="productPrice" type="number" placeholder="商品价格" class="form-control" formControlName="price">
+    <span class="help-block" [class.hidden]="!formModel.hasError('priceValidator', 'price')">商品价格不能为负数</span>
   </div>
   <div class="form-group">
     <label for="productCategory">商品类别：</label>
-    <input id="productCategory" type="text" placeholder="商品类别" class="form-control">
+    <select class="form-control" id="productCategory" formControlName="category">
+      <option value="-1">全部分类</option>
+      <option *ngFor="let category of categories; let i = index" [value]="category">{{category}}</option>
+    </select>
   </div>
   <div class="form-group">
-    <button type="submit" class="btn btn-primary btn-block">搜索</button>
+    <button type="submit" class="btn btn-primary btn-block" [disabled]="formModel.invalid">搜索</button>
   </div>
 </form>

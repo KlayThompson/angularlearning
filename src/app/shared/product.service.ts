@@ -37,6 +37,10 @@ export class ProductService {
   getProductComment(id: number): ProductComment[] {
     return this.productComments.filter((productCommnet: ProductComment) => productCommnet.productId == id);
   }
+
+  getAllProductCategorys(): string[] {
+    return ['电子商务', '计算机设备', '大数据', '艺术设计'];
+  }
 }
 
 export class Product {
