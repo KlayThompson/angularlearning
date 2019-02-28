@@ -1,11 +1,5 @@
-<div class="row">
-  <div class="col-sm-12">
-    <div class="form-group">
-      <input class="form-control" placeholder='请输入商品名称' [formControl]="titleSearch">
-    </div>
-  </div>
-</div>
-<div *ngFor="let product of products | fliter:'title':keyword" class="col-md-4 col-lg-4 col-sm-4">
+
+<div *ngFor="let product of products | async" class="col-md-4 col-lg-4 col-sm-4">
   <div class="thumbnail">
     <img [src]="imageUrl">
     <div class="caption">

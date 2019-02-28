@@ -28,6 +28,7 @@ export class SearchComponent implements OnInit {
 
     if (this.formModel.valid) {
       console.log(this.formModel.value);
+      this.productService.searchEmiter.emit(this.formModel.value);
     }
   }
 
