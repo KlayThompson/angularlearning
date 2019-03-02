@@ -15,6 +15,7 @@ import {ProductService} from './shared/product.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FliterPipe } from './pipe/fliter.pipe';
 import {HttpClientModule} from '@angular/common/http';
+import {WebsocketService} from './shared/websocket.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, WebsocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
